@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Hannan Himmu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset et variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary: #64748b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #e2e8f0;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: white;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header et Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Section Accueil */
+        section {
+            padding: 100px 0;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn-cv {
+            background-color: #10b981;
+            border-color: #10b981;
+            margin-left: 15px;
+        }
+        
+        .btn-cv:hover {
+            background-color: transparent;
+            color: #10b981;
+        }
+        
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            max-height: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            object-fit: cover;
+        }
+        
+        /* Section Présentation */
+        .presentation-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .presentation-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .presentation-text h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .presentation-text p {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .presentation-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .presentation-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Section CV */
+        .cv-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cv-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .cv-content p {
+            color: var(--secondary);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Section Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .certification-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .certification-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .certification-card p {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .certification-card .provider {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Section Veille Technologique */
+        .veille-section {
+            background-color: #f9fafb;
+        }
+        
+        .veille-content {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        .veille-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .veille-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .veille-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 30px;
+        }
+        
+        .veille-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .veille-header p {
+            opacity: 0.9;
+        }
+        
+        .veille-body {
+            padding: 30px;
+        }
+        
+        .veille-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .veille-body p {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .veille-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature {
+            background-color: #f1f5f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .feature p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .pros-cons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .pros-box, .cons-box {
+            padding: 25px;
+            border-radius: 10px;
+        }
+        
+        .pros-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #16a34a;
+        }
+        
+        .pros-box h4 {
+            color: #16a34a;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .cons-box {
+            background-color: #fef2f2;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .cons-box h4 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .security-section {
+            background-color: #eff6ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .security-section h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .example-section {
+            background-color: #f0f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .example-section h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .example-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .example-images img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .evolution-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .evolution-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .evolution-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .evolution-table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        
+        /* Section Veille Cyber */
+        .cyber-example {
+            background-color: #fff7ed;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .cyber-example h4 {
+            color: #ea580c;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .example-comparison {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .comparison-item {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+        }
+        
+        .comparison-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .comparison-item p {
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light);
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray);
+            color: var(--dark);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--gray);
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-text, .presentation-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            section {
+                padding: 80px 0;
+            }
+            
+            .comparison-item img {
+                height: 200px;
+            }
+            
+            .pros-cons-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                margin-bottom: 10px;
+            }
+            
+            .btn-cv {
+                margin-left: 0;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .veille-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-item {
+                min-width: 100%;
+            }
+            
+            .comparison-item img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo"> Hannan Himmu</a>
+                
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#presentation">Présentation</a></li>
+                    <li><a href="#cv">CV</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#veille-techno">Veille Techno</a></li>
+                    <li><a href="#veille-cyber">Veille Cyber</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Bonjour, je suis <span>Hannan Himmu</span></h1>
+                    <p>Étudiant en première année de BTS SIO (Services Informatiques aux Organisations) à l'Ensemble Sainte-Marie, spécialité SLAM (Solutions Logicielles et Applications Métiers).</p>
+                    <p>Passionné par le développement et les nouvelles technologies, je cherche à construire des applications utiles, performantes et adaptées aux besoins des utilisateurs.</p>
+                    <a href="#presentation" class="btn">En savoir plus</a>
+                    <a href="https://drive.google.com/file/d/1PSHHDOjfVPyqD2IiPNa5xlP89kgAxjY2/view?usp=sharing" target="_blank" class="btn btn-cv"><i class="fas fa-download"></i> Télécharger CV</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.pinimg.com/736x/57/6f/72/576f720018166dc9671cf453eec06bf3.jpg" alt="Développement web et technologie">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Présentation -->
+    <section id="presentation">
+        <div class="container">
+            <div class="presentation-content">
+                <div class="presentation-text">
+                    <h2>Présentation</h2>
+                    <p>Je m'appelle Hannan Himmu, étudiant en BTS SIO spécialité SLAM. Passionné par le développement logiciel et les nouvelles technologies, je me forme actuellement aux métiers du numérique avec une approche orientée vers la création de solutions logicielles adaptées aux besoins métiers.</p>
+                    <p>Mon objectif est de devenir développeur full-stack, capable de concevoir et de maintenir des applications web complètes, de l'interface utilisateur à la base de données.</p>
+                    <p>Je suis particulièrement intéressé par les technologies modernes comme React, Node.js, les API REST, et je me forme également aux bonnes pratiques en matière de sécurité informatique.</p>
+                    <a href="#cv" class="btn">Voir mon CV</a>
+                </div>
+                <div class="presentation-image">
+                    <img src="https://www.smartyou.ch/wp-content/uploads/2024/03/infrastructure_informatique.jpg" alt="Étudiant en informatique">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CV -->
+    <section id="cv" style="background-color: #f9fafb;">
+        <div class="container">
+            <div class="cv-content">
+                <h2>Mon Curriculum Vitae</h2>
+                <p>Vous pouvez consulter et télécharger mon CV complet au format PDF pour avoir une vision détaillée de mon parcours académique, mes compétences et mes expériences.</p>
+                <a href="https://drive.google.com/file/d/1sPppcqZJ6dH4fPvQixPu1vrX3PJYidVk/view?usp=sharing" target="_blank" class="btn"><i class="fas fa-download"></i> Télécharger mon CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Certifications -->
+    <section id="certifications">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--dark);">Mes Certifications</h2>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <h3>Gérez du code avec Git et GitHub</h3>
+                    <p>Apprentissage des concepts fondamentaux de la gestion de version avec Git et collaboration sur GitHub.</p>
+                    <p class="provider">OpenClassroom</p>
+                </div>
+                
+                <div class="certification-card">
+                    <h3>Sécurisez vos applications</h3>
+                    <p>Acquisition des bonnes pratiques pour sécuriser le développement d'applications web contre les vulnérabilités courantes.</p>
+                    <p class="provider">OpenClassroom</p>
+                </div>
+                
+                <div class="certification-card">
+                    <h3>12 bonnes pratiques de l'ANSSI</h3>
+                    <p>Formation sur les recommandations de l'Agence Nationale de la Sécurité des Systèmes d'Information pour sécuriser les projets numériques.</p>
+                    <p class="provider">OpenClassroom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Veille Technologique -->
+    <section id="veille-techno" class="veille-section">
+        <div class="container">
+            <div class="veille-content">
+                <!-- Veille Technologique : 5G -->
+                <div class="veille-card">
+                    <div class="veille-header">
+                        <h2>Veille Technologique : La 5G</h2>
+                        <p>La cinquième génération de réseau mobile et ses impacts</p>
+                    </div>
+                    
+                    <div class="veille-body">
+                        <h3>Qu'est-ce que la 5G ?</h3>
+                        <p>La 5G est la cinquième génération de réseau mobile, succédant à la 4G. Elle apporte trois améliorations majeures :</p>
+                        
+                        <div class="veille-features">
+                            <div class="feature">
+                                <h4>Débit très élevé</h4>
+                                <p>Jusqu'à 10 fois plus rapide que la 4G, permettant le streaming 8K et la réalité virtuelle immersive.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Faible latence</h4>
+                                <p>Temps de réponse quasi instantané (1-10ms) pour les applications temps réel comme les voitures autonomes.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Connectivité massive</h4>
+                                <p>Capacité à connecter jusqu'à 1 million d'appareils par km² pour l'Internet des Objets (IoT).</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Avantages et Inconvénients -->
+                        <div class="pros-cons-container">
+                            <div class="pros-box">
+                                <h4>Avantages de la 5G</h4>
+                                <ul style="color: var(--secondary); margin-left: 20px;">
+                                    <li><strong>Vitesse très élevée</strong> : Internet jusqu'à 10 fois plus rapide que la 4G</li>
+                                    <li><strong>Nouvelles applications</strong> : Voitures autonomes, télémédecine, réalité augmentée</li>
+                                    <li><strong>Temps de réponse réduit</strong> : Latence quasi-nulle (1-10ms)</li>
+                                    <li><strong>Connectivité massive</strong> : Supporte jusqu'à 1 million d'appareils/km²</li>
+                                    <li><strong>Énergie optimisée</strong> : Meilleure efficacité énergétique par bit transmis</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cons-box">
+                                <h4>Inconvénients de la 5G</h4>
+                                <ul style="color: var(--secondary); margin-left: 20px;">
+                                    <li><strong>Coût élevé</strong> : Infrastructure coûteuse à déployer</li>
+                                    <li><strong>Couverture limitée</strong> : Pas disponible dans toutes les régions</li>
+                                    <li><strong>Consommation énergétique</strong> : Plus élevée pour les appareils</li>
+                                    <li><strong>Impact environnemental</strong> : Fabrication des nouveaux équipements</li>
+                                    <li><strong>Appareils compatibles requis</strong> : Nécessite des smartphones 5G</li>
+                                    <li><strong>Risques géopolitiques</strong> : Dépendance aux équipementiers</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Sécurité 5G -->
+                        <div class="security-section">
+                            <h4>Sécurité de la 5G</h4>
+                            <p>La 5G intègre des mesures de sécurité améliorées par rapport aux générations précédentes :</p>
+                            <ul style="color: var(--secondary); margin-left: 20px; margin-top: 10px;">
+                                <li><strong>End-to-end encryption (E2EE)</strong> : Chiffrement obligatoire de bout en bout pour protéger les données durant leur transmission</li>
+                                <li><strong>Zero Trust Architecture (ZTA)</strong> : Protège les points de terminaison contre les cybermenaces</li>
+                                <li><strong>3GPP (3rd Generation Partnership Project)</strong> : Normes mondiales pour les télécommunications mobiles</li>
+                                <li><strong>Protection DDoS avancée</strong> : Systèmes améliorés contre les attaques par déni de service</li>
+                                <li><strong>Séparation des réseaux (slicing)</strong> : Isolation des différents types de trafic pour une meilleure sécurité</li>
+                                <li><strong>Authentification renforcée</strong> : Mécanismes d'authentification plus robustes</li>
+                            </ul>
+                        </div>
+                        
+                        <h3>Évolution des réseaux mobiles</h3>
+                        <table class="evolution-table">
+                            <thead>
+                                <tr>
+                                    <th>Génération</th>
+                                    <th>Années</th>
+                                    <th>Apport principal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1G</td>
+                                    <td>Années 80</td>
+                                    <td>Appels vocaux analogiques</td>
+                                </tr>
+                                <tr>
+                                    <td>2G</td>
+                                    <td>Années 90</td>
+                                    <td>SMS + appels numériques</td>
+                                </tr>
+                                <tr>
+                                    <td>3G</td>
+                                    <td>Années 2000</td>
+                                    <td>Internet mobile basique</td>
+                                </tr>
+                                <tr>
+                                    <td>4G</td>
+                                    <td>Années 2010</td>
+                                    <td>Internet mobile rapide</td>
+                                </tr>
+                                <tr>
+                                    <td>5G</td>
+                                    <td>2020+</td>
+                                    <td>Ultra-rapide, IoT, temps réel</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="example-section">
+                            <h4>Exemple concret : La RATP et la 5G</h4>
+                            <p>La RATP utilise la 5G pour améliorer ses services de transport :</p>
+                            <ul style="color: var(--secondary); margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Bus connectés</strong> : Gestion en temps réel du trafic et optimisation des itinéraires</li>
+                                <li><strong>Métro automatisé</strong> : Lignes de métro entièrement automatisées avec contrôle à distance</li>
+                                <li><strong>Sécurité renforcée</strong> : Vidéosurveillance intelligente dans les stations</li>
+                                <li><strong>Information voyageur</strong> : Affichage en temps réel des horaires et perturbations</li>
+                            </ul>
+                            <div class="example-images">
+                                <img src="https://www.ratp.fr/sites/default/files/styles/article_editorial_xl/public/2025-03/bus2025_7_1.jpg" alt="Bus connecté RATP 5G">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/MP_14_-_Coteaux_Beauclair_%281%29.jpg" alt="Métro automatisé MP14">
+                            </div>
+                        </div>
+                        
+                        <h3>Comment ça marche ?</h3>
+                        <p>La 5G utilise trois catégories de services :</p>
+                        <ul style="color: var(--secondary); margin-left: 20px; margin-top: 10px;">
+                            <li><strong>eMBB</strong> (Enhanced Mobile Broadband) : Pour un débit ultra-rapide (vidéo 8K, réalité virtuelle)</li>
+                            <li><strong>mMTC</strong> (Massive Machine Type Communications) : Pour connecter des milliers d'objets IoT</li>
+                            <li><strong>URLLC</strong> (Ultra Reliable Low Latency Communications) : Pour des applications critiques (voiture autonome, télémédecine)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Veille Cyber : DeepFake -->
+                <div class="veille-card">
+                    <div class="veille-header" style="background-color: #dc2626;">
+                        <h2>Veille Cyber : Les DeepFakes</h2>
+                        <p>L'Intelligence Artificielle au service de la manipulation médiatique</p>
+                    </div>
+                    
+                    <div class="veille-body">
+                        <h3>Qu'est-ce qu'un DeepFake ?</h3>
+                        <p>Un DeepFake est une technique utilisant l'intelligence artificielle pour créer des médias falsifiés (vidéos, images, voix) qui semblent extrêmement réalistes. Le terme combine "deep learning" (apprentissage profond) et "fake" (faux).</p>
+                        
+                        <div class="veille-features">
+                            <div class="feature">
+                                <h4>Technologie</h4>
+                                <p>Utilise des réseaux antagonistes génératifs (GAN) pour superposer le visage ou la voix d'une personne sur une autre.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Accessibilité</h4>
+                                <p>De plus en plus accessible avec des applications grand public nécessitant peu de compétences techniques.</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Réalisme</h4>
+                                <p>Devenu presque indétectable à l'œil nu, nécessitant des outils spécialisés pour identification.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cyber-example">
+                            <h4>Exemple concret : Anne Deneuchatel et le faux Brad Pitt</h4>
+                            <p>En 2023, une française prénommée Anne Deneuchatel a été victime d'une arnaque au DeepFake. Des escrocs ont utilisé une vidéo falsifiée de Brad Pitt pour la convaincre d'investir dans un faux projet immobilier.</p>
+                            <p>Les malfaiteurs ont créé une vidéo où Brad Pitt semblait s'adresser directement à elle, lui promettant des retours sur investissement exceptionnels. La qualité du DeepFake était telle qu'elle a été convaincue de transférer plusieurs milliers d'euros.</p>
+                            
+                            <div class="example-comparison">
+                                <div class="comparison-item">
+                                    <img src="https://fr.web.img2.acsta.net/pictures/20/02/10/10/37/1374948.jpg" alt="Vrai Brad Pitt">
+                                    <p>Véritable Brad Pitt</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <img src="https://www.chosun.com/resizer/v2/F23UK7VDLFDVJBNDNJGR3JHTPQ.jpg?auth=cc86cf3160789ab7d053605462ba8452d40919cd70bc6aab9219e664a2ac6e94&width=474&height=419&smart=true" alt="DeepFake de Brad Pitt">
+                                    <p>DeepFake de Brad Pitt</p>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-top: 20px;"><strong>Impact :</strong> Cette affaire montre comment les DeepFakes peuvent être utilisés pour des arnaques financières sophistiquées, en exploitant la confiance dans des célébrités. L'image de droite est un exemple de ce à quoi pourrait ressembler un DeepFake de Brad Pitt utilisé dans une arnaque.</p>
+                        </div>
+                        
+                        <h3>Avantages et risques</h3>
+                        <div class="pros-cons-container">
+                            <div class="pros-box">
+                                <h4>Avantages</h4>
+                                <ul style="color: var(--secondary); margin-left: 20px;">
+                                    <li>Cinéma : Ressusciter des acteurs disparus</li>
+                                    <li>Éducation : Simulations réalistes pour la formation</li>
+                                    <li>Médecine : Formation des chirurgiens avec des simulations</li>
+                                    <li>Accessibilité : Doublage automatique pour personnes malentendantes</li>
+                                    <li>Divertissement : Effets spéciaux avancés</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cons-box">
+                                <h4>Risques</h4>
+                                <ul style="color: var(--secondary); margin-left: 20px;">
+                                    <li>Désinformation massive</li>
+                                    <li>Usurpation d'identité</li>
+                                    <li>Arnaques financières sophistiquées</li>
+                                    <li>Atteinte à la vie privée et au droit à l'image</li>
+                                    <li>Manipulation politique et électorale</li>
+                                    <li>Cyberharcèlement</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 30px;">Comment se protéger ?</h3>
+                        <p>Face à la menace des DeepFakes, il est important de :</p>
+                        <ul style="color: var(--secondary); margin-left: 20px; margin-top: 10px;">
+                            <li>Vérifier la source des vidéos et images</li>
+                            <li>Rechercher la version originale du contenu</li>
+                            <li>Utiliser des outils de détection (comme Microsoft Video Authenticator)</li>
+                            <li>Éduquer le public sur l'existence de cette technologie</li>
+                            <li>Développer des législations adaptées contre les usages malveillants</li>
+                            <li>Signaler les contenus suspects aux plateformes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Portfolio Hannan Himmu</h3>
+                    <p>Étudiant en BTS SIO SLAM passionné par le développement web et les nouvelles technologies.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/himmu-hannan-6215b4355/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/hannanhimmu-dotcom" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#presentation">Présentation</a></li>
+                        <li><a href="#cv">CV</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                        <li><a href="#veille-techno">Veille Technologique</a></li>
+                        <li><a href="#veille-cyber">Veille Cyber</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> hannanhimmu@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +33 7 58 88 13 85</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ensemble Sainte-Marie</li>
+                        <li><i class="fas fa-graduation-cap"></i> BTS SIO SLAM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026-2027 Hannan Himmu. Tous droits réservés.</p>
+                <p>Portfolio BTS SIO - Développé avec HTML, CSS et JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Animation des éléments au défilement
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observer les cartes de certification et veille
+        document.querySelectorAll('.certification-card, .veille-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
