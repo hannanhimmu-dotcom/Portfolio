@@ -261,6 +261,29 @@
         .page-item p { font-size: 0.75rem; color: var(--muted); }
         .page-item .page-icon { font-size: 1rem; color: var(--accent); margin-bottom: 8px; }
 
+        /* BUTTON DOC */
+        .btn-doc {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--border);
+            color: var(--accent2);
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            margin-top: 16px;
+        }
+
+        .btn-doc:hover {
+            border-color: var(--accent2);
+            background: rgba(129, 140, 248, 0.1);
+            transform: translateY(-2px);
+        }
+
         .projects-nav {
             background: var(--bg2); border-top: 1px solid var(--border);
             padding: 48px 0;
@@ -540,6 +563,9 @@
                 </div>
             </a>
         </div>
+    </div>
+    <div class="container" style="margin-top: 24px; text-align: center;">
+        <a href="https://docs.google.com/document/d/17esaVDW-Ab2QZ92Z6mqfe5-WuPDcojJO/edit?usp=sharing" target="_blank" class="btn-doc"><i class="fas fa-file-alt"></i> 📄 Fiche descriptive du projet</a>
     </div>
 </div>
 
