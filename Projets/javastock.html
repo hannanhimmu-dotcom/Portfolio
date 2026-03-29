@@ -275,32 +275,9 @@
                     <div class="block-label">Contexte</div>
                     <h2 class="block-title">Présentation du projet</h2>
                     <p class="block-text">JavaStock est une application de gestion de stock développée en Java avec une interface graphique JavaFX. Conçue dans le cadre du BTS SIO SLAM, elle permet à une entreprise de gérer son inventaire de manière complète et intuitive depuis une application desktop.</p>
-                    <p class="block-text">L'application suit le patron de conception MVC (Modèle-Vue-Contrôleur) pour séparer la logique métier de l'interface utilisateur, garantissant une architecture maintenable et extensible.</p>
                 </div>
 
-                <div class="section-block reveal">
-                    <div class="block-label">Architecture</div>
-                    <h2 class="block-title">Patron MVC</h2>
-                    <p class="block-text">Le projet est structuré selon le patron MVC, une bonne pratique fondamentale en développement logiciel.</p>
-                    <div class="arch-grid">
-                        <div class="arch-item">
-                            <h4>Model</h4>
-                            <p>Classes Java représentant les entités métier (Produit, Categorie, Mouvement) et les interactions avec la base de données MySQL.</p>
-                        </div>
-                        <div class="arch-item">
-                            <h4>View</h4>
-                            <p>Fichiers FXML définissant les interfaces graphiques JavaFX — tableaux, formulaires et graphiques de stock.</p>
-                        </div>
-                        <div class="arch-item">
-                            <h4>Controller</h4>
-                            <p>Classes Java gérant les interactions utilisateur, les validations et la logique de navigation entre les vues.</p>
-                        </div>
-                        <div class="arch-item">
-                            <h4>DAO</h4>
-                            <p>Couche d'accès aux données avec des requêtes préparées JDBC pour sécuriser les interactions avec MySQL.</p>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="section-block reveal">
                     <div class="block-label">Fonctionnalités</div>
@@ -334,13 +311,7 @@
                                 <p>Notifications automatiques lorsqu'un produit atteint un seuil de stock minimum configurable.</p>
                             </div>
                         </div>
-                        <div class="feature-item">
-                            <div class="feature-icon"><i class="fas fa-file-csv"></i></div>
-                            <div class="feature-text">
-                                <h4>Export CSV</h4>
-                                <p>Export de l'inventaire complet ou filtré au format CSV pour traitement externe (Excel, etc.).</p>
-                            </div>
-                        </div>
+
                         <div class="feature-item">
                             <div class="feature-icon"><i class="fas fa-search"></i></div>
                             <div class="feature-text">
@@ -351,28 +322,7 @@
                     </div>
                 </div>
 
-                <div class="section-block reveal">
-                    <div class="block-label">Extrait de code</div>
-                    <h2 class="block-title">Exemple — Classe Produit</h2>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Produit.java — Modèle</span>
-                        </div>
-                        <div class="code-body">
-<span class="c-kw">public class</span> <span class="c-cls">Produit</span> {<br>
-&nbsp;&nbsp;<span class="c-kw">private int</span> id;<br>
-&nbsp;&nbsp;<span class="c-kw">private</span> <span class="c-cls">String</span> reference;<br>
-&nbsp;&nbsp;<span class="c-kw">private</span> <span class="c-cls">String</span> nom;<br>
-&nbsp;&nbsp;<span class="c-kw">private int</span> quantiteStock;<br>
-&nbsp;&nbsp;<span class="c-kw">private int</span> seuilAlerte;<br><br>
-&nbsp;&nbsp;<span class="c-kw">public boolean</span> <span class="c-fn">estEnAlerte</span>() {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-kw">return</span> quantiteStock &lt;= seuilAlerte;<br>
-&nbsp;&nbsp;}<br><br>
-&nbsp;&nbsp;<span class="c-comment">// Getters & Setters...</span><br>
-}
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="section-block reveal">
                     <div class="block-label">Stack technique</div>
@@ -390,14 +340,7 @@
                             <i class="fas fa-database"></i>
                             <span>MySQL</span>
                         </div>
-                        <div class="tech-item">
-                            <i class="fas fa-plug"></i>
-                            <span>JDBC</span>
-                        </div>
-                        <div class="tech-item">
-                            <i class="fas fa-layer-group"></i>
-                            <span>MVC</span>
-                        </div>
+
                         <div class="tech-item">
                             <i class="fab fa-git-alt"></i>
                             <span>Git</span>
@@ -405,12 +348,6 @@
                     </div>
                 </div>
 
-                <div class="section-block reveal">
-                    <div class="block-label">Bilan</div>
-                    <h2 class="block-title">Ce que j'ai appris</h2>
-                    <p class="block-text">Ce projet m'a permis d'approfondir la programmation orientée objet en Java et la conception d'interfaces graphiques avec JavaFX. L'implémentation du patron MVC m'a enseigné comment structurer une application de manière professionnelle et maintenable.</p>
-                    <p class="block-text">La gestion de la connexion JDBC et la mise en place de requêtes préparées pour sécuriser les accès à la base de données MySQL ont été particulièrement formatrices. J'ai également appris à gérer les exceptions et à concevoir une expérience utilisateur cohérente dans une application desktop.</p>
-                </div>
 
             </div>
 
@@ -434,10 +371,7 @@
                             <span class="label">Contexte</span>
                             <span class="value">BTS SIO SLAM</span>
                         </div>
-                        <div class="info-row">
-                            <span class="label">Patron</span>
-                            <span class="value">MVC</span>
-                        </div>
+
                         <div class="info-row">
                             <span class="label">Équipe</span>
                             <span class="value">Solo</span>
@@ -450,10 +384,7 @@
                     <div class="info-card-body">
                         <div class="tag-list">
                             <span class="tag tag-green">Java 17</span>
-                            <span class="tag tag-blue">JavaFX</span>
-                            <span class="tag tag-purple">MySQL</span>
-                            <span class="tag tag-green">JDBC</span>
-                            <span class="tag tag-blue">MVC</span>
+                            <span class="tag tag-purple">PostgreSQL</span>
                             <span class="tag tag-purple">Git</span>
                         </div>
                     </div>
@@ -468,29 +399,22 @@
                                 <div class="timeline-content">
                                     <div class="t-date">Phase 1</div>
                                     <h4>Conception</h4>
-                                    <p>Diagramme de classes, modèle BDD, architecture MVC</p>
+                                    <p>Diagramme de classes, modèle BDD et architecture</p>
                                 </div>
                             </div>
+
                             <div class="timeline-item">
                                 <div class="timeline-dot"><div class="t-dot"></div><div class="t-line"></div></div>
                                 <div class="timeline-content">
                                     <div class="t-date">Phase 2</div>
-                                    <h4>Couche Model + DAO</h4>
-                                    <p>Classes Java, connexion JDBC, requêtes préparées</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"><div class="t-dot"></div><div class="t-line"></div></div>
-                                <div class="timeline-content">
-                                    <div class="t-date">Phase 3</div>
                                     <h4>Interface JavaFX</h4>
-                                    <p>Vues FXML, contrôleurs, graphiques et formulaires</p>
+                                    <p>Vues, contrôleurs, graphiques et formulaires</p>
                                 </div>
                             </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"><div class="t-dot"></div></div>
                                 <div class="timeline-content">
-                                    <div class="t-date">Phase 4</div>
+                                    <div class="t-date">Phase 3</div>
                                     <h4>Tests & documentation</h4>
                                     <p>Jeux de tests, Javadoc et dossier technique</p>
                                 </div>
@@ -526,7 +450,7 @@
 <footer class="project-footer">
     <div class="footer-inner">
         <p>&copy; 2026 Hannan Himmu · Portfolio BTS SIO</p>
-        <p>Développé avec <span style="color:var(--accent)">♥</span> en HTML, CSS & JavaScript</p>
+        <p>Développé en HTML, CSS & JavaScript</p>
     </div>
 </footer>
 

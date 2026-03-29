@@ -261,36 +261,13 @@
         .page-item p { font-size: 0.75rem; color: var(--muted); }
         .page-item .page-icon { font-size: 1rem; color: var(--accent); margin-bottom: 8px; }
 
-        /* BUTTON DOC */
-        .btn-doc {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--border);
-            color: var(--accent2);
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            transition: all 0.2s;
-            margin-top: 16px;
-        }
-
-        .btn-doc:hover {
-            border-color: var(--accent2);
-            background: rgba(129, 140, 248, 0.1);
-            transform: translateY(-2px);
-        }
-
         .projects-nav {
             background: var(--bg2); border-top: 1px solid var(--border);
             padding: 48px 0;
         }
         .nav-projects-grid {
-            display: grid; grid-template-columns: 1fr;
-            gap: 20px; max-width: 400px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 20px; max-width: 700px; margin: 0 auto;
         }
         .nav-project-item {
             background: var(--surface); border: 1px solid var(--border);
@@ -317,7 +294,7 @@
             .project-layout { grid-template-columns: 1fr; }
             .sidebar { position: static; }
             .project-title { font-size: 2.5rem; }
-            .nav-projects-grid { max-width: 300px; }
+            .nav-projects-grid { grid-template-columns: 1fr; max-width: 400px; }
         }
     </style>
 </head>
@@ -344,11 +321,11 @@
             </div>
             <div class="project-label">Projet_02 — Site Vitrine</div>
             <h1 class="project-title">Aventures<br>Alpine</h1>
-            <div class="project-subtitle">Réservation en ligne · Activités outdoor</div>
+            <div class="project-subtitle">Plateforme de réservation · Activités outdoor · Full-Stack</div>
             <div class="meta-row">
                 <div class="meta-item"><i class="fas fa-calendar"></i> 2025 — 2026</div>
                 <div class="meta-item"><i class="fas fa-user"></i> Projet individuel</div>
-                <div class="meta-item"><i class="fas fa-code-branch"></i> HTML / CSS / JS</div>
+                <div class="meta-item"><i class="fas fa-code-branch"></i> React · Node.js · MySQL</div>
             </div>
         </div>
     </div>
@@ -362,8 +339,8 @@
                 <div class="section-block reveal">
                     <div class="block-label">Contexte</div>
                     <h2 class="block-title">Présentation du projet</h2>
-                    <p class="block-text">Aventures Alpine est une agence fictive spécialisée dans les activités outdoor en montagne (randonnée, escalade, ski, via ferrata). Dans le cadre de mon BTS SIO SLAM, j'ai conçu et développé un site vitrine responsive avec un système de réservation en ligne.</p>
-                    <p class="block-text">L'objectif était de créer une expérience utilisateur moderne et engageante, valorisant les activités de l'agence tout en permettant aux visiteurs de réserver directement depuis le site.</p>
+                    <p class="block-text">Aventures Alpines est une plateforme de réservation dédiée aux activités de montagne. Développée dans le cadre du BTS SIO, cette application web permet aux utilisateurs de découvrir et réserver leurs aventures en montagne.</p>
+                    <p class="block-text">Le projet a été conçu pour répondre aux besoins des stations de montagne et des amateurs de sports outdoor. L'interface intuitive offre une expérience utilisateur optimale sur mobile et desktop.</p>
                 </div>
 
                 <div class="section-block reveal">
@@ -446,16 +423,24 @@
                     <h2 class="block-title">Technologies utilisées</h2>
                     <div class="tech-grid">
                         <div class="tech-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
                         </div>
                         <div class="tech-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-js"></i>
                             <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-plug"></i>
+                            <span>API REST</span>
                         </div>
                         <div class="tech-item">
                             <i class="fab fa-git-alt"></i>
@@ -504,11 +489,12 @@
                     <div class="info-card-header">Technologies</div>
                     <div class="info-card-body">
                         <div class="tag-list">
-                            <span class="tag tag-blue">HTML5</span>
-                            <span class="tag tag-purple">CSS3</span>
-                            <span class="tag tag-green">JavaScript</span>
-                            <span class="tag tag-blue">Git</span>
-                            <span class="tag tag-green">Responsive</span>
+                            <span class="tag tag-blue">React</span>
+                            <span class="tag tag-green">Node.js</span>
+                            <span class="tag tag-purple">MySQL</span>
+                            <span class="tag tag-blue">JavaScript</span>
+                            <span class="tag tag-green">API REST</span>
+                            <span class="tag tag-purple">Git</span>
                         </div>
                     </div>
                 </div>
@@ -517,6 +503,9 @@
                     <div class="info-card-header">Étapes clés</div>
                     <div class="info-card-body">
                         <div class="timeline">
+                            <div class="timeline-item">
+                                </div>
+                            </div>
                             <div class="timeline-item">
                                 <div class="timeline-dot"><div class="t-dot"></div><div class="t-line"></div></div>
                                 <div class="timeline-content">
@@ -553,6 +542,7 @@
     <div class="container">
         <div class="nav-label">Autres projets</div>
         <div class="nav-projects-grid">
+
             <a href="javastock.html" class="nav-project-item">
                 <div class="nav-icon" style="background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2); color: var(--accent3);">
                     <i class="fas fa-boxes"></i>
@@ -564,15 +554,12 @@
             </a>
         </div>
     </div>
-    <div class="container" style="margin-top: 24px; text-align: center;">
-        <a href="https://docs.google.com/document/d/17esaVDW-Ab2QZ92Z6mqfe5-WuPDcojJO/edit?usp=sharing" target="_blank" class="btn-doc"><i class="fas fa-file-alt"></i> Fiche descriptive du projet</a>
-    </div>
 </div>
 
 <footer class="project-footer">
     <div class="footer-inner">
         <p>&copy; 2026 Hannan Himmu · Portfolio BTS SIO</p>
-        <p>Développé avec <span style="color:var(--accent3)">♥</span> en HTML, CSS & JavaScript</p>
+        <p>Développé <span style="color:var(--accent3)"></span> en HTML, CSS & JavaScript</p>
     </div>
 </footer>
 
